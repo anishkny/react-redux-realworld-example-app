@@ -1,5 +1,11 @@
 version: 2
 
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
+
 jobs:
   test:
     docker:
@@ -12,9 +18,3 @@ jobs:
             yarn
             yarn run build
             yarn run test
-
-workflows:
-  version: 2
-  test:
-    jobs:
-      - test
