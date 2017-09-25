@@ -1,0 +1,20 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:8.5.0
+    steps:
+      - checkout
+      - run:
+          name: Build & test
+          command: |
+            yarn
+            yarn run build
+            yarn run test
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
